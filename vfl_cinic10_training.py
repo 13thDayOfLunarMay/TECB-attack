@@ -12,13 +12,12 @@ from fedml_core.trainer.vfl_trainer import VFLTrainer
 from fedml_core.utils.utils import AverageMeter, keep_predict_loss, over_write_args_from_file, image_format_2_rgb
 from fedml_core.data_preprocessing.CINIC10.dataset import CINIC10L
 
-#from fedml_api.utils.utils import save_checkpoint
+
 import torch
 import torch.nn as nn
 import argparse
 import time
 import glob
-import wandb
 import shutil
 import torchvision.transforms as transforms
 from torchvision.datasets import CIFAR100
@@ -43,7 +42,6 @@ def main(device, args):
     Main_Top1_acc = AverageMeter()
     Main_Top5_acc = AverageMeter()
 
-    #wandb.init(project="vfl_CIFAR100", config=args)
 
     for seed in range(5):
         # random seed for 10 runs

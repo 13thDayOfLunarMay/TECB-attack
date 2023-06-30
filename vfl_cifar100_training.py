@@ -20,7 +20,6 @@ import torch.nn as nn
 import argparse
 import time
 import glob
-import wandb
 import shutil
 import torchvision.transforms as transforms
 from torchvision.datasets import CIFAR100
@@ -45,7 +44,6 @@ def main(device, args):
     Main_Top1_acc = AverageMeter()
     Main_Top5_acc = AverageMeter()
 
-    #wandb.init(project="vfl_CIFAR100", config=args)
 
     for seed in range(5):
         # random seed for 10 runs
@@ -201,7 +199,6 @@ def main(device, args):
                 is_best = (total_value >= best_asr)
                 best_asr = max(total_value, best_asr)
 
-            # wandb.log({"train_loss": train_loss, "test_loss": test_loss, "top1_acc": top1_acc, "top5_acc": top5_acc})
             save_model_dir = args.save + f"/{seed}_saved_models"
             if not os.path.exists(save_model_dir):
                 os.makedirs(save_model_dir)

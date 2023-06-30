@@ -19,7 +19,6 @@ import torch.nn as nn
 import argparse
 import time
 import glob
-# import wandb
 import shutil
 import torchvision.transforms as transforms
 from torchvision.datasets import CIFAR10
@@ -43,8 +42,6 @@ def main(device, args):
     ASR_Top5 = AverageMeter()
     Main_Top1_acc = AverageMeter()
     Main_Top5_acc = AverageMeter()
-
-    #wandb.init(project="vfl_CIFAR10", config=args)
 
     for seed in range(5):
         # random seed for 10 runs
@@ -208,7 +205,6 @@ def main(device, args):
 
             print("epoch:", epoch+1, "train_loss:", train_loss, "test_loss: ", test_loss, "top1_acc: ", top1_acc, "top5_acc: ", top5_acc, "test_asr_acc: ", test_asr_acc)
 
-            #wandb.log({"train_loss": train_loss, "test_loss": test_loss, "top1_acc": top1_acc, "top5_acc": top5_acc})
 
 
             ## save partyA and partyB model parameters

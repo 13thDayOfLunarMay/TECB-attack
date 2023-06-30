@@ -18,7 +18,6 @@ import torch.nn as nn
 import argparse
 import time
 import glob
-import wandb
 import shutil
 import torchvision.transforms as transforms
 from torchvision.datasets import CIFAR100
@@ -93,9 +92,9 @@ def main(device, args):
         )
 
         model_list = []
-        model_list.append(BottomModelForCifar10())
-        model_list.append(BottomModelForCifar10())
-        model_list.append(TopModelForCifar10())
+        model_list.append(BottomModelForCinic10())
+        model_list.append(BottomModelForCinic10())
+        model_list.append(TopModelForCinic10())
 
         criterion = nn.CrossEntropyLoss().to(device)
         bottom_criterion = keep_predict_loss
