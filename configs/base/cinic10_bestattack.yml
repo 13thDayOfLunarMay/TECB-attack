@@ -1,0 +1,29 @@
+# dataset
+dataset: CINIC10L
+half: 16
+
+# dir
+data_dir: ./data/CINIC10-L/
+resume: ''
+save: ./model/CINIC10/base
+
+# model
+workers: 8
+report_freq: 5
+
+# backdoor
+backdoor: 50
+poison_epochs: 80
+target_class: plane
+poison_num: 4
+corruption_amp: 12.0
+backdoor_start: True
+
+
+# Hyperparameters
+#lr: 0.6
+lr: 0.8
+alpha: 0.05
+eps: 1.0
+epochs: 100
+batch_size: 2048
