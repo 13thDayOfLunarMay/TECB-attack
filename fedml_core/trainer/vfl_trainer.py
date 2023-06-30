@@ -334,8 +334,6 @@ class VFLTrainer(ModelTrainer):
                 grad_output_bottom_model_b = laplacian_noise_masking(grad_output_bottom_model_b,
                                                                      beta=args.lap_noise_ratio)
 
-            # sign SGD
-            # TODO: 这里的signSGD只是完成了在g上的操作，理论上应该使用optimizer.step()的方法来优化
             if args.signSGD:
                 torch.sign(grad_output_bottom_model_b, out=grad_output_bottom_model_b)
 
@@ -416,8 +414,7 @@ class VFLTrainer(ModelTrainer):
                                           loss_func=criterion,
                                           args=args)
 
-            # read grad of: input of top model(also output of bottom models), which will be used as bottom model's target
-            # TODO：！！！这里的grad用法很特别，需要学习！！！
+
             grad_output_bottom_model_a = input_tensor_top_model_a.grad
             grad_output_bottom_model_b = input_tensor_top_model_b.grad
 
@@ -919,7 +916,6 @@ class VFLTrainer(ModelTrainer):
                                                                      beta=args.lap_noise_ratio)
 
             # sign SGD
-            # TODO: 这里的signSGD只是完成了在g上的操作，理论上应该使用optimizer.step()的方法来优化
             if args.signSGD:
                 torch.sign(grad_output_bottom_model_b, out=grad_output_bottom_model_b)
 
@@ -1099,7 +1095,6 @@ class VFLTrainer(ModelTrainer):
                 U_B_gradients_list = laplacian_noise_masking(U_B_gradients_list, beta=args.lap_noise_ratio)
 
             # sign SGD
-            # TODO: 这里的signSGD只是完成了在g上的操作，理论上应该使用optimizer.step()的方法来优化
             if args.signSGD:
                 torch.sign(U_B_gradients_list, out=U_B_gradients_list)
 

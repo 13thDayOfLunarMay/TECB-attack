@@ -112,7 +112,6 @@ def main(device, args):
         )
 
         # build model
-        # TODO：这里的模型是写死的，没法增加多个参与方
         model_list = []
         model_list.append(BottomModelForCifar10())
         model_list.append(BottomModelForCifar10())
