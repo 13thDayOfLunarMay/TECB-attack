@@ -115,7 +115,6 @@ def compute_correct_prediction(*, y_targets, y_prob_preds, threshold=0.5):
 def gradient_masking(g):
     # add scalar noise to align with the maximum norm in the batch
     # (expectation norm alignment)
-    # yjr:这里的输入不明确但可以确定的是g[0][0]的shape是[batch_size, dim]
 
     g_norm = torch.norm(g, p=2, dim=1)
     max_norm = torch.max(g_norm)

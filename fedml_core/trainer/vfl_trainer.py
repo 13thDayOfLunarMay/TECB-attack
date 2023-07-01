@@ -323,7 +323,6 @@ class VFLTrainer(ModelTrainer):
             if args.marvell:
                 grad_output_bottom_model_b = marvell_g(grad_output_bottom_model_b, target)
 
-            # ----yjr-----
             # gradient compression
             if args.gc:
                 grad_output_bottom_model_b = gradient_compression(grad_output_bottom_model_b,
@@ -904,7 +903,7 @@ class VFLTrainer(ModelTrainer):
             # add marvell noise
             if args.marvell:
                 grad_output_bottom_model_b = marvell_g(grad_output_bottom_model_b, target)
-            # ----yjr-----
+
             # gradient compression
             if args.gc:
                 grad_output_bottom_model_b = gradient_compression(grad_output_bottom_model_b,
@@ -1085,7 +1084,7 @@ class VFLTrainer(ModelTrainer):
             if args.marvell:
                 grad_output_bottom_model_b = marvell_g(grad_output_bottom_model_b, target)
                 # U_B_gradients_list = marvell_g(U_B_gradients_list, target)
-            # ----yjr-----
+
             # gradient compression
             if args.gc:
                 U_B_gradients_list = gradient_compression(U_B_gradients_list, preserved_perc=args.gc_ratio)
