@@ -369,4 +369,3 @@ dependencies:
     - higher==0.2.1
     - opencv-python==4.6.0.66
     - wandb==0.15.3
-prefix: /home/chenpeng/anaconda3/envs/pytorch
