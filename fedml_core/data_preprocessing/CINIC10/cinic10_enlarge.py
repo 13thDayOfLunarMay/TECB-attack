@@ -5,8 +5,8 @@ import glob
 import os
 from shutil import copyfile
 
-cinic_directory = "/home/jirui.yang/bvfl/code/data/CINIC-10/"
-enlarge_directory = "/home/jirui.yang/bvfl/code/data/CINIC10-L"
+cinic_directory = "./data/CINIC-10/"
+enlarge_directory = "./data/CINIC10-L"
 classes = ["airplane", "automobile", "bird", "cat", "deer", "dog", "frog", "horse", "ship", "truck"]
 sets = ['train', 'valid', 'test']
 if not os.path.exists(enlarge_directory):
